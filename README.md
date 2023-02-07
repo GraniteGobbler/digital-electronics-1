@@ -15,6 +15,7 @@ Alt-H1
 Alt-H2
 ------
 
+# Emphasis
 Emphasis, aka italics, with *asterisks* or _underscores_.
 
 Strong emphasis, aka bold, with **asterisks** or __underscores__.
@@ -23,6 +24,7 @@ Combined emphasis with **asterisks and _underscores_**.
 
 Strikethrough uses two tildes. ~~Scratch this.~~
 
+#Lists
 1. First ordered list item
 2. Another item
 ⋅⋅* Unordered sub-list. 
@@ -40,6 +42,7 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 - Or minuses
 + Or pluses
 
+#Links
 [I'm an inline-style link](https://www.google.com)
 
 [I'm an inline-style link with title](https://www.google.com "Google's Homepage")
@@ -62,6 +65,7 @@ Some text to show that the reference links can follow later.
 [1]: http://slashdot.org
 [link text itself]: http://www.reddit.com
 
+#Images
 Here's our logo (hover to see the title text):
 
 Inline-style: 
