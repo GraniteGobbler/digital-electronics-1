@@ -1,4 +1,4 @@
-# Lab 1: INSERT_YOUR_FIRSTNAME INSERT_YOUR_LASTNAME
+# Lab 1: Christopher Koiš
 
 ### De Morgan's laws
 
@@ -21,21 +21,23 @@ end architecture dataflow;
 
    | **c** | **b** |**a** | **f_ORIG** | **f_(N)AND** | **f_(N)OR** |
    | :-: | :-: | :-: | :-: | :-: | :-: |
-   | 0 | 0 | 0 |  |  |  |
-   | 0 | 0 | 1 |  |  |  |
-   | 0 | 1 | 0 |  |  |  |
-   | 0 | 1 | 1 |  |  |  |
-   | 1 | 0 | 0 |  |  |  |
-   | 1 | 0 | 1 |  |  |  |
-   | 1 | 1 | 0 |  |  |  |
-   | 1 | 1 | 1 |  |  |  |
+   | 0 | 0 | 0 | 0 | 0 | 0 |
+   | 0 | 0 | 1 | 1 | 1 | 1 |
+   | 0 | 1 | 0 | 0 | 0 | 0 |
+   | 0 | 1 | 1 | 0 | 0 | 0 |
+   | 1 | 0 | 0 | 0 | 0 | 0 |
+   | 1 | 0 | 1 | 1 | 1 | 1 |
+   | 1 | 1 | 0 | 0 | 0 | 0 |
+   | 1 | 1 | 1 | 0 | 0 | 0 |
 
 ### Distributive laws
 
 1. Screenshot with simulated time waveforms. Always display all inputs and outputs (display the inputs at the top of the image, the outputs below them) at the appropriate time scale!
 
-   ![your figure]()
+   ![your figure](images/figure2.png)
+
+   The number signifies the first or second distributive law from the assignment.
 
 2. Link to your public EDA Playground example:
 
-   [https://www.edaplayground.com/x/RWyc](https://www.edaplayground.com/x/RWyc)
+   [https://www.edaplayground.com/x/QVnq](https://www.edaplayground.com/x/QVnq)
