@@ -22,9 +22,9 @@
 
    greater_{SoP}^{min.} = &~b_{1}\overline{a_{1}}+b_{0}\overline{a_{1}}\overline{a_{0}}+b_{1}b_{0}\overline{a_{0}}\\
 
-   less_{PoS}^{min.} = &~ \left ( \overline{b_{0}}+a_{1} \right )\cdot \left  ( \overline{b_{1}}+a_{1} \right ) \cdot \left ( a_{1}+a_{0} \right )\cdot \left ( b_{1}+b_{0} \right )\cdot \left ( \overline{b_{1}}+a_{0} \right )
+   less_{PoS}^{min.} = &~ \left ( \overline{b_{0}}+a_{1} \right )\cdot \left  ( \overline{b_{1}}+a_{1} \right ) \cdot \left ( a_{1}+a_{0} \right )\cdot \left ( \overline{b_{1}}+\overline{b_{0}} \right )\cdot \left ( \overline{b_{1}}+a_{0} \right )
 
-\end{align*} 
+\end{align*}  
 ```
 
 
