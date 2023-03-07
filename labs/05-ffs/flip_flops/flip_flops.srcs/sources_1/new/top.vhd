@@ -45,9 +45,11 @@ architecture behavioral of top is
 
   -- Internal signals between flip-flops
   signal sig_ff0 : std_logic;
+  signal sig_ff1 : std_logic;
+  signal sig_ff2 : std_logic;
 
   -- WRITE YOUR CODE HERE
-
+  
 begin
 
   --------------------------------------------------------------------
@@ -57,8 +59,9 @@ begin
           clk => CLK100MHZ,
           rst => BTNC,
           -- WRITE YOUR CODE HERE
-          
-          q   => sig_ff0
+          d   => SW(0),
+          q   => sig_ff0,
+          q_bar   => LED(0)
       );
 
   d_ff_1 : entity work.d_ff_rst
@@ -66,8 +69,9 @@ begin
           clk => CLK100MHZ,
           rst => BTNC,
           -- WRITE YOUR CODE HERE
-            
-          q   => sig_ff0
+          d   => sig_ff0,
+          q   => sig_ff1,
+          LED(1) => sig_ff1
       );
 
   d_ff_2 : entity work.d_ff_rst
@@ -75,8 +79,9 @@ begin
           clk => CLK100MHZ,
           rst => BTNC,
           -- WRITE YOUR CODE HERE
-
-          q   => sig_ff0
+          d   => sig_ff1,
+          q   => sig_ff2,
+          LED(2) => sig_ff2
       );
       
   d_ff_3 : entity work.d_ff_rst
@@ -84,7 +89,8 @@ begin
           clk => CLK100MHZ,
           rst => BTNC,
           -- WRITE YOUR CODE HERE
-
+          d   => sig_ff2,
+          q   => LED(3)        
       );
 
 end architecture behavioral;
