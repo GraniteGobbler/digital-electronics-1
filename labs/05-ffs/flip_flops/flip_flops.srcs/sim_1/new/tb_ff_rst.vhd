@@ -19,10 +19,13 @@ architecture testbench of tb_ff_rst is
     signal sig_clk_100MHz : std_logic;
     signal sig_rst        : std_logic;
     signal sig_data       : std_logic;
-    signal sig_dq        : std_logic;
-    signal sig_dq_bar    : std_logic;
-    signal sig_tq        : std_logic;
-    signal sig_tq_bar    : std_logic;
+    signal sig_k          : std_logic;
+    signal sig_dq         : std_logic;
+    signal sig_dq_bar     : std_logic;
+    signal sig_tq         : std_logic;
+    signal sig_tq_bar     : std_logic;
+    signal sig_jkq        : std_logic;
+    signal sig_jkq_bar    : std_logic;
     
 begin
     -- Connecting testbench signals with d_ff_rst entity
@@ -44,7 +47,16 @@ begin
             q     => sig_tq,
             q_bar => sig_tq_bar
         );
-
+    
+    uut_jk_ff_rst : entity work.jk_ff_rst
+        port map (
+            clk   => sig_clk_100MHz,
+            rst   => sig_rst,
+            j     => sig_data,
+            k     => sig_k,
+            q     => sig_jkq,
+            q_bar => sig_jkq_bar
+        );
     --------------------------------------------------------
     -- Clock generation process
     --------------------------------------------------------
@@ -64,6 +76,8 @@ begin
     --------------------------------------------------------
     p_reset_gen : process
     begin
+        sig_rst <= '0'; wait for 2.5 ns;
+        sig_rst <= '1'; wait for 10 ns;
         sig_rst <= '0'; wait for 20 ns;
         sig_rst <= '1'; wait for 15 ns;
         sig_rst <= '0'; wait for 50 ns;
@@ -96,11 +110,24 @@ begin
         sig_data <='1'; wait for 10 ns;
         sig_data <='0'; wait for 10 ns;
         sig_data <='1'; wait for 15 ns;
-        sig_data <='0'; wait for 5 ns;    
-        
+        sig_data <='0'; wait for 5 ns;     
 
         report "Stimulus process finished";
         wait;
     end process p_stimulus;
+    
+    p_stimulus2 : process
+    begin
+       
+        sig_k <='0'; wait for 50 ns;
+        sig_k <='1'; wait for 12.5 ns;
+        sig_k <='0'; wait for 20 ns;
+        sig_k <='1'; wait for 10 ns;
+        sig_k <='0'; wait for 20 ns;
 
+        
+        report "Stimulus process finished";
+        wait;
+    end process p_stimulus2;
+    
 end architecture testbench;
