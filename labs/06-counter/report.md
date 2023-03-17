@@ -1,4 +1,4 @@
-# Lab 6: INSERT_YOUR_FIRSTNAME INSERT_YOUR_LASTNAME
+# Lab 6: Christopher Koiš
 
 ### Bidirectional counter
 
@@ -12,20 +12,23 @@
     --------------------------------------------------------
     p_cnt_up_down : process (clk) is
     begin
-      if rising_edge(clk) then
-        if (rst = '1') then           -- Synchronous reset
-          sig_cnt <= (others => '0'); -- Clear all bits
-        elsif (en = '1') then         -- Test if counter is enabled
 
-          -- TEST COUNTER DIRECTION HERE
-
+    if rising_edge(clk) then
+      if (rst = '1') then           -- Synchronous reset
+        sig_cnt <= (others => '0'); -- Clear all bits
+      elsif (en = '1') then         -- Test if counter is enabled
+         if (cnt_up = '1') then
             sig_cnt <= sig_cnt + 1;
-        end if;
+         else
+            sig_cnt <= sig_cnt - 1;
+         end if;
       end if;
-    end process p_cnt_up_down;
+    end if;
+
+  end process p_cnt_up_down;
 ```
 
-2. Screenshot with simulated time waveforms. Test: (a) reset, (b) counter direction, (c) enable. Always display all inputs and outputs (display the inputs at the top of the image, the outputs below them) at the appropriate time scale!
+2. Screenshot with simulated time waveforms. Test: (a) reset, (b) counter direction, (c) enable. Always display all inputs and outputs (display the inputs at the top of the image, the outputs below them) at the appropriate time scale! **VIVADO**
 
    ![your figure]()
 
@@ -33,4 +36,4 @@
 
 1. Image of the top layer structure including both counters, ie a 4-bit bidirectional counter from *Part 4* and a 12-bit counter with a 10 ms time base from *Experiments on your own*. The image can be drawn on a computer or by hand. Always name all inputs, outputs, components and internal signals!
 
-   ![your figure]()
+   ![your figure](images/top_schema.png)
