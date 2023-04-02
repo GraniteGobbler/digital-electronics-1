@@ -25,11 +25,16 @@
         case sig_state is
 
           when WEST_STOP =>
+            -- Skip wait if speed button (BTNR) is pushed
+            --if speed = '1' then
+              --sig_state <= WEST_GO;
+              -- Reset local counter value
+              --sig_cnt <= c_ZERO;
+            --end if;
+
             -- Count to 2 secs
             if (sig_cnt < c_DELAY_2SEC) then
-              sig_cnt <= sig_cnt + 1;
-            --elsif speed = '1' then
-              --sig_state <= WEST_GO;
+              sig_cnt <= sig_cnt + 1;      
             else
               -- Move to the next state
               sig_state <= WEST_GO;
@@ -114,6 +119,6 @@
 
    ![your figure]()
 
-3. Figure of Moor-based state diagram of the traffic light controller with *speed button* to ensure a synchronous transition to the `WEST_GO` state. The image can be drawn on a computer or by hand. Always name all states, transitions, and input signals!
+3. Figure of Moore-based state diagram of the traffic light controller with *speed button* to ensure a synchronous transition to the `WEST_GO` state. The image can be drawn on a computer or by hand. Always name all states, transitions, and input signals!
 
-   ![your figure]()
+   ![your figure](images/fsm1.png)
