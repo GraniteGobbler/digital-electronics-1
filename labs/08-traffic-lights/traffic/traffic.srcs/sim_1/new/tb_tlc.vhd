@@ -37,6 +37,7 @@ architecture testbench of tb_tlc is
   signal sig_west       : std_logic_vector(2 downto 0);
   signal sig_en         : std_logic;
   signal sig_cnt        : std_logic_vector(3 downto 0);
+  signal sig_speed      : std_logic;
 
 begin
 
@@ -47,7 +48,8 @@ begin
       clk   => sig_clk_100mhz,
       rst   => sig_rst,
       south => sig_south,
-      west  => sig_west
+      west  => sig_west,
+      speed => sig_speed
     );
 
   --------------------------------------------------------
@@ -98,6 +100,19 @@ begin
     wait;
 
   end process p_enable;
+  
+   --------------------------------------------------------
+ -- Speed button wave 
+ --------------------------------------------------------
+  p_speed : process is
+  begin
+    
+    sig_speed <= '0'; wait for 1000ns;
+    sig_speed <= '1'; wait for 385ns;
+    sig_speed <= '0'; wait;
+    
+
+  end process p_speed;
 
   --------------------------------------------------------
   -- Data generation process
