@@ -28,11 +28,12 @@ begin
     begin
         
         if (rising_edge(clk_baud)) then
+          if (rst = '1') then
             Rx_out <= "00000000";
             Rx_buffer <= "00000000";
             par_bit <= '0';
             par_bin <= '0';
-            
+          end if;
         end if;
         
     end process rx_reset;
