@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_ff_rst_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="tb_ff_rst" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="250000fs"></ZoomEndTime>
+      <Cursor1Time time="117735fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="276"></NameColumnWidth>
+      <ValueColumnWidth column_width="120"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="6" />
+   <wvobject fp_name="/tb_ff_rst/sig_clk_100MHz" type="logic">
+      <obj_property name="ElementShortName">sig_clk_100MHz</obj_property>
+      <obj_property name="ObjectShortName">sig_clk_100MHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ff_rst/sig_rst" type="logic">
+      <obj_property name="ElementShortName">sig_rst</obj_property>
+      <obj_property name="ObjectShortName">sig_rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ff_rst/sig_data" type="logic">
+      <obj_property name="ElementShortName">sig_data</obj_property>
+      <obj_property name="ObjectShortName">sig_data</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ff_rst/sig_k" type="logic">
+      <obj_property name="ElementShortName">sig_k</obj_property>
+      <obj_property name="ObjectShortName">sig_k</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ff_rst/sig_tq" type="logic">
+      <obj_property name="ElementShortName">sig_tq</obj_property>
+      <obj_property name="ObjectShortName">sig_tq</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ff_rst/sig_jkq" type="logic">
+      <obj_property name="ElementShortName">sig_jkq</obj_property>
+      <obj_property name="ObjectShortName">sig_jkq</obj_property>
+   </wvobject>
+</wave_config>

@@ -1,6 +1,6 @@
 ----------------------------------------------------------
 --
--- Template for traffic lights controller testbench.
+-- Template for 4-digit 7-segment display driver testbench.
 -- Nexys A7-50T, xc7a50ticsg324-1L
 -- TerosHDL, Vivado v2020.2, EDA Playground
 --
@@ -17,46 +17,35 @@ library ieee;
 -- Entity declaration for testbench
 ----------------------------------------------------------
 
-entity tb_tlc is
+entity tb_baud is
   -- Entity of testbench is always empty
-end entity tb_tlc;
+end entity tb_baud;
 
 ----------------------------------------------------------
 -- Architecture body for testbench
 ----------------------------------------------------------
 
-architecture testbench of tb_tlc is
+architecture testbench of tb_baud is
 
-  -- Local constants
+  -- Testbench local constants
   constant c_CLK_100MHZ_PERIOD : time := 10 ns;
 
-  -- Local signals
+  -- Testench local signals
   signal sig_clk_100mhz : std_logic;
   signal sig_rst        : std_logic;
-  signal sig_south      : std_logic_vector(2 downto 0);
-  signal sig_west       : std_logic_vector(2 downto 0);
-  signal sig_en         : std_logic;
-  signal sig_cnt        : std_logic_vector(3 downto 0);
-<<<<<<< HEAD
-=======
-  signal sig_speed      : std_logic;
->>>>>>> 3c745efaeced9bfbbc83cff05ea2925a563f5e54
+  signal sig_baud_sw    : STD_LOGIC_VECTOR(2 downto 0);
+  signal sig_clk_baud   : STD_LOGIC;
 
 begin
 
-  -- Connecting testbench signals with tlc entity
-  -- (Unit Under Test)
-  uut_tlc : entity work.tlc
+  -- Connecting testbench signals with driver_7seg_4digits
+  -- entity (Unit Under Test)
+  uut_baud : entity work.baud
     port map (
-      clk   => sig_clk_100mhz,
-      rst   => sig_rst,
-      south => sig_south,
-<<<<<<< HEAD
-      west  => sig_west
-=======
-      west  => sig_west,
-      speed => sig_speed
->>>>>>> 3c745efaeced9bfbbc83cff05ea2925a563f5e54
+      clk     => sig_clk_100mhz,
+      rst     => sig_rst,
+      baud_sw => sig_baud_sw,
+      clk_baud => sig_clk_baud
     );
 
   --------------------------------------------------------
@@ -65,7 +54,7 @@ begin
   p_clk_gen : process is
   begin
 
-    while now < 10000 ns loop -- 10 usec of simulation
+    while now < 1000000 ns loop -- 40 periods of 100MHz clock
 
       sig_clk_100mhz <= '0';
       wait for c_CLK_100MHZ_PERIOD / 2;
@@ -73,7 +62,6 @@ begin
       wait for c_CLK_100MHZ_PERIOD / 2;
 
     end loop;
-
     wait;
 
   end process p_clk_gen;
@@ -84,45 +72,13 @@ begin
   p_reset_gen : process is
   begin
 
+    sig_rst <= '0'; wait for 2 ns;
+    sig_rst <= '1'; wait for 20 ns;
     sig_rst <= '0';
-    wait for 200 ns;
 
-    -- Reset activated
-    sig_rst <= '1';
-    wait for 500 ns;
-
-    -- Reset deactivated
-    sig_rst <= '0';
     wait;
 
   end process p_reset_gen;
-
- --------------------------------------------------------
- -- Enable set to const. '1' 
- --------------------------------------------------------
-  p_enable : process is
-  begin
-
-    sig_en <= '1';
-    wait;
-
-  end process p_enable;
-<<<<<<< HEAD
-=======
-  
-   --------------------------------------------------------
- -- Speed button wave 
- --------------------------------------------------------
-  p_speed : process is
-  begin
-    
-    sig_speed <= '0'; wait for 1000ns;
-    sig_speed <= '1'; wait for 385ns;
-    sig_speed <= '0'; wait;
-    
-
-  end process p_speed;
->>>>>>> 3c745efaeced9bfbbc83cff05ea2925a563f5e54
 
   --------------------------------------------------------
   -- Data generation process
@@ -131,7 +87,10 @@ begin
   begin
 
     report "Stimulus process started";
-    -- No other input data is needed.
+
+    sig_baud_sw   <= "111"; wait for 500us;
+    sig_baud_sw   <= "100";
+        
     report "Stimulus process finished";
     wait;
 

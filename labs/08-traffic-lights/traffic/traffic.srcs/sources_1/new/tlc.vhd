@@ -86,7 +86,11 @@ begin
       -- FOR IMPLEMENTATION, CALCULATE VALUE: 250 ms / (1/100 MHz)
       -- 1   @ 10 ns
       -- 25 000 000 @ 250 ms
+<<<<<<< HEAD
       g_MAX => 25000000
+=======
+      g_MAX => 1
+>>>>>>> 3c745efaeced9bfbbc83cff05ea2925a563f5e54
     )
     port map (
       clk => clk,
@@ -116,15 +120,23 @@ begin
           when WEST_STOP =>
             -- Count to 2 secs
             if (sig_cnt < c_DELAY_2SEC) then
+<<<<<<< HEAD
               sig_cnt <= sig_cnt + 1;
             --elsif speed = '1' then
               --sig_state <= WEST_GO;
+=======
+              sig_cnt <= sig_cnt + 1;      
+>>>>>>> 3c745efaeced9bfbbc83cff05ea2925a563f5e54
             else
               -- Move to the next state
               sig_state <= WEST_GO;
               -- Reset local counter value
               sig_cnt <= c_ZERO;
             end if;
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 3c745efaeced9bfbbc83cff05ea2925a563f5e54
 
           when WEST_GO =>
             -- WRITE OTHER STATES HERE
@@ -198,6 +210,10 @@ begin
     end if; -- Rising edge
   end process p_traffic_fsm;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3c745efaeced9bfbbc83cff05ea2925a563f5e54
   --------------------------------------------------------
   -- p_output_fsm:
   -- A combinatorial process is sensitive to state
