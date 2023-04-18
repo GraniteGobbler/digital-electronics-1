@@ -2,8 +2,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use ieee.numeric_std.all;
-use ieee.numeric_bit.all;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 
 entity Receiver is
@@ -19,7 +18,7 @@ end Receiver;
 
 architecture Behavioral of Receiver is
 
-signal par_bin : STD_LOGIC := '0';
+signal par_buffer : std_logic_vector(2 downto 0);
 signal Rx_buffer : STD_LOGIC_VECTOR(7 downto 0) := "00000000";
 signal i_cnt : natural:= 0; -- internal loop counter vaiable
 
@@ -32,7 +31,7 @@ begin
             Rx_out <= "00000000";
             Rx_buffer <= "00000000";
             par_bit <= '0';
-            par_bin <= '0';
+            par_buffer <= "000";
           end if;
         end if;
         
@@ -60,14 +59,9 @@ begin
         par_bit <= '0';
         for bit in Rx_buffer(0) to Rx_buffer(7) loop
             if (bit = '1') then
-                if (par_bin = '0') then
-                    par_bin <= '1';
-                    par_bit <= '1';
-                else
-                    par_bin <= '0';
-                    par_bit <= '0';
-                end if;
+                par_buffer <= par_buffer + 1;
             end if;
+            par_bit <= par_buffer(0);
          end loop;
         
     end process parity_look;
