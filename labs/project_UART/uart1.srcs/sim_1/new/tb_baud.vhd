@@ -1,15 +1,3 @@
-----------------------------------------------------------
---
--- Template for 4-digit 7-segment display driver testbench.
--- Nexys A7-50T, xc7a50ticsg324-1L
--- TerosHDL, Vivado v2020.2, EDA Playground
---
--- Copyright (c) 2020 Tomas Fryza
--- Dept. of Radio Electronics, Brno Univ. of Technology, Czechia
--- This work is licensed under the terms of the MIT license.
---
-----------------------------------------------------------
-
 library ieee;
   use ieee.std_logic_1164.all;
 
@@ -17,35 +5,42 @@ library ieee;
 -- Entity declaration for testbench
 ----------------------------------------------------------
 
-entity tb_baud is
+entity tb_receiver is
   -- Entity of testbench is always empty
-end entity tb_baud;
+end entity tb_receiver;
 
 ----------------------------------------------------------
 -- Architecture body for testbench
 ----------------------------------------------------------
 
-architecture testbench of tb_baud is
+architecture testbench of tb_receiver is
 
   -- Testbench local constants
   constant c_CLK_100MHZ_PERIOD : time := 10 ns;
+  constant c_CLK_BAUD          : time := 104 us;
 
   -- Testench local signals
   signal sig_clk_100mhz : std_logic;
+  signal sig_clk_baud   : std_logic;
   signal sig_rst        : std_logic;
-  signal sig_baud_sw    : STD_LOGIC_VECTOR(2 downto 0);
-  signal sig_clk_baud   : STD_LOGIC;
+  signal sig_Rx         : std_logic_vector (8 downto 0);
+  signal sig_Rx_out     : std_logic_vector (7 downto 0);
+  signal sig_par_bit    : std_logic;
+
 
 begin
 
-  -- Connecting testbench signals with driver_7seg_4digits
+  -- Connecting testbench signals with Receiver
   -- entity (Unit Under Test)
-  uut_baud : entity work.baud
+  uut_Receiver : entity work.Receiver
     port map (
-      clk     => sig_clk_100mhz,
-      rst     => sig_rst,
-      baud_sw => sig_baud_sw,
-      clk_baud => sig_clk_baud
+      clk_baud     => sig_clk_baud,
+      rst          => sig_rst,
+      Rx           => sig_Rx,
+      Rx_out       => sig_Rx_out,
+      par_bit      => sig_par_bit,
+      par_error    => '0'
+
     );
 
   --------------------------------------------------------
@@ -54,7 +49,7 @@ begin
   p_clk_gen : process is
   begin
 
-    while now < 1000000 ns loop -- 40 periods of 100MHz clock
+    while now < 20 ms loop -- 40 periods of 100MHz clock
 
       sig_clk_100mhz <= '0';
       wait for c_CLK_100MHZ_PERIOD / 2;
@@ -65,6 +60,24 @@ begin
     wait;
 
   end process p_clk_gen;
+  
+ --------------------------------------------------------
+ -- Clock generation process
+ --------------------------------------------------------
+  p_baud_gen : process is
+  begin
+
+    while now < 20 ms loop
+
+      sig_clk_baud <= '0';
+      wait for c_CLK_BAUD / 2;
+      sig_clk_baud <= '1';
+      wait for c_CLK_BAUD / 2;
+
+    end loop;
+    wait;
+
+  end process p_baud_gen;
 
   --------------------------------------------------------
   -- Reset generation process
@@ -72,8 +85,7 @@ begin
   p_reset_gen : process is
   begin
 
-    sig_rst <= '0'; wait for 2 ns;
-    sig_rst <= '1'; wait for 20 ns;
+    sig_rst <= '1'; wait for 5 ms;
     sig_rst <= '0';
 
     wait;
@@ -88,9 +100,10 @@ begin
 
     report "Stimulus process started";
 
-    sig_baud_sw   <= "111"; wait for 500us;
-    sig_baud_sw   <= "100";
-        
+    sig_Rx   <= "100000000"; wait for 6 ms;
+    sig_Rx   <= "010101110"; wait for c_CLK_BAUD;
+    sig_Rx   <= "100000000";
+    
     report "Stimulus process finished";
     wait;
 
