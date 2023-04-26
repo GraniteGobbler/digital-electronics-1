@@ -23,7 +23,7 @@ architecture testbench of tb_receiver is
   signal sig_clk_100mhz : std_logic;
   signal sig_clk_baud   : std_logic;
   signal sig_rst        : std_logic;
-  signal sig_Rx         : std_logic_vector (8 downto 0);
+  signal sig_Rx         : std_logic;
   signal sig_Rx_out     : std_logic_vector (7 downto 0);
   signal sig_par_bit    : std_logic;
 
@@ -100,9 +100,19 @@ begin
 
     report "Stimulus process started";
 
-    sig_Rx   <= "100000000"; wait for 6 ms;
-    sig_Rx   <= "010101110"; wait for c_CLK_BAUD;
-    sig_Rx   <= "100000000";
+    sig_Rx   <= '1'; wait for 6 ms;
+    sig_Rx   <= '0'; wait for c_CLK_BAUD;
+    sig_Rx   <= '1'; wait for c_CLK_BAUD;
+    sig_Rx   <= '1'; wait for c_CLK_BAUD;
+    sig_Rx   <= '0'; wait for c_CLK_BAUD;
+    sig_Rx   <= '1'; wait for c_CLK_BAUD;
+    sig_Rx   <= '0'; wait for c_CLK_BAUD;
+    sig_Rx   <= '1'; wait for c_CLK_BAUD;
+    sig_Rx   <= '0'; wait for c_CLK_BAUD;
+    sig_Rx   <= '0'; wait for c_CLK_BAUD;
+    sig_Rx   <= '1'; wait;
+    
+    
     
     report "Stimulus process finished";
     wait;
