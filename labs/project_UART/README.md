@@ -1,9 +1,9 @@
 # Universal Asynchronous Receiver and Transmitter  
 
 ## Team members
-* Begán Mojmír (205 895) (Git-Hub repository, transmitter)
-* Koiš Christopher (240 635)(reciever, documentation)
-* Shapoval Yaroslav (233 258)(reciever, baud component)
+* Begán Mojmír (205 895) - Git-Hub repository, transmitter
+* Koiš Christopher (240 635) - Receiver, documentation
+* Shapoval Yaroslav (233 258) - Receiver, baud component
 
 ## Description and explanation
 
