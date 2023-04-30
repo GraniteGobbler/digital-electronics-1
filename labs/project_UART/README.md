@@ -1,9 +1,9 @@
 # Universal Asynchronous Receiver and Transmitter  
 
 ## Team members
-* Began Mojmír
-* Koiš Christopher 
-* Shapoval Yaroslav
+* Begán Mojmír (205 895) (Git-Hub repository, transmitter)
+* Koiš Christopher (240 635)(reciever, documentation)
+* Shapoval Yaroslav (233 258)(reciever, baud component)
 
 ## Description and explanation
 
@@ -28,11 +28,13 @@ The boards are connected via the Pmod ports JA on the **transmitter** and JB on 
 
 At first, we wanted to use a keyboard as an input method for the transmitter, but we settled on using a static method with an option of utilising the PuTTY console as an alternative. <br>
 
-## Software description
+## Hardware description
 
 <p align="center">
   <img src="https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/images/schema_nedo.png" />
 </p>
+
+## Software description
 
 ### Transmitter
 
@@ -67,16 +69,10 @@ Receiver doesn't require any intervention by the user. It's always waiting for a
 
 ## References
 
-1. Referencie na datasheet NEXIS anpríklad
-2. nejaký VHDL cheat-sheet
-3. a pod.
-
-## Transmitter Circuit
-
-![img1](images/Transmitter_block.png)
-![img2](images/Transmitter_schematic.png)
-
-## Receiver Circuit
-
-![img1](images/Receiver_block.png)
-![img2](images/Receiver_schematic.png)
+* [Nexys A7 Reference Manual](https://digilent.com/reference/programmable-logic/nexys-a7/reference-manual)
+* [Rohde&Schwarz: Understanding UART article](https://www.rohde-schwarz.com/cz/products/test-and-measurement/essentials-test-equipment/digital-oscilloscopes/understanding-uart_254524.html#:~:text=UART%20stands%20for%20universal%20asynchronous,and%20receive%20in%20both%20directions)
+* [PROTOCOLS: UART - I2C - SPI - Serial communications #001](https://www.youtube.com/watch?v=IyGwvGzrqp8&ab_channel=Electronoobs)
+* [Nexys A7-50T GPIO Demo](https://github.com/Digilent/Nexys-A7-50T-GPIO)
+* [UART code example 1](https://www.fpgarelated.com/thread/12580/uart-communication-for-nexys-a7-100t)
+* [UART code example 2](https://www.pantechsolutions.net/vhdl-code-for-uart-serial-communication#:~:text=UART%20Stands%20for%20Universal%20Asynchronous,sequential%20data%20with%20control%20bits)
+* [UART code example 3](https://www.analog.com/en/analog-dialogue/articles/uart-a-hardware-communication-protocol.html#:~:text=The%20transmitting%20UART%20is%20connected,parallel%20for%20the%20receiving%20device)
