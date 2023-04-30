@@ -7,14 +7,13 @@
 
 ## Description and explanation
 
-<!-- ![board description](images/nexys-a7-top-600.png) -->
-<!-- ![board description](https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/images/nexys-a7-top-600.png) -->
-
-
 Our project handles the reception and transmission of any data stream using two communication wires. The data stream needs to contain a 
 **start bit, 8 data bits** and, if desired, a **parity bit**. <br>
 The communication can also be made using one Nexys A7-50T board and a PC via the PuTTY client. <br> 
 
+<!-- <p align="center">
+  <img src="images/nexys-a7-top-600.png" />
+</p> -->
 <p align="center">
   <img src="https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/images/nexys-a7-top-600.png" />
 </p>
@@ -29,17 +28,11 @@ The boards are connected via the Pmod ports JA on the **transmitter** and JB on 
 
 At first, we wanted to use a keyboard as an input method for the transmitter, but we settled on using a static method with an option of utilising the PuTTY console as an alternative. <br>
 
-## Hardware description of demo application
-
-### Transmitter
-
-We transmit the output signal form FPGA board via IR LED, which we feed with NPN transistor, because the FPGA PMOD port cannot supply enough current. We also used an external white LED and buzzer to demonstrate the outgoing morse signal.
-
-### Receiver
-
-As external receiver we used IR-phototransistor. Since we needed to overcome the problem with low slew rate, we come with solution with Sziklai pair. We connected two of these pairs in cascade, which improved our slew rate significantly. Therefore, the ramp of rising edge lasts only 50 ns.
-
 ## Software description
+
+<p align="center">
+  <img src="https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/images/schema_nedo.png" />
+</p>
 
 ### Transmitter
 
