@@ -8,7 +8,7 @@
 ## Description and explanation
 
 <!-- ![board description](images/nexys-a7-top-600.png) -->
-![board description]https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/images/nexys-a7-top-600.png
+![board description](https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/images/nexys-a7-top-600.png)
 
 Our project handles the reception and transmission of any data stream using two communication wires. The data stream needs to contain a 
 **start bit, 8 data bits** and, if desired, a **parity bit**. <br>
