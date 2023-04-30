@@ -9,14 +9,15 @@
 
 <!-- ![board description](images/nexys-a7-top-600.png) -->
 <!-- ![board description](https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/images/nexys-a7-top-600.png) -->
-<p align="center">
-  <img src="https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/images/nexys-a7-top-600.png" />
-</p>
 
 
 Our project handles the reception and transmission of any data stream using two communication wires. The data stream needs to contain a 
 **start bit, 8 data bits** and, if desired, a **parity bit**. <br>
 The communication can also be made using one Nexys A7-50T board and a PC via the PuTTY client. <br> 
+
+<p align="center">
+  <img src="https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/images/nexys-a7-top-600.png" />
+</p>
 
 The baud rate is variable in a standard range: **4800** to **115200** bps, this is set by three switches and is visible on the display.<br>
 Our implementation uses a manual transmitter/receiver mode toggle. In the transmitter mode, the board is either continuously sending set data, which is toggled by the **S.b.** switch, or just once. ***Odkaz na konkretne tlacidlo*** <br>
