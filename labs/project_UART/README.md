@@ -34,6 +34,7 @@ Our implementation uses a manual Transmitter/Receiver/Transceiver mode toggle (*
 
 ### Transmitter
 The data is set using *SW[7]* to *SW[0]*, **LSB** is on *SW[0]*. The sent data is delimited by a stop bit. If the parity is set (*SW[9]*), the user can choose if the parity should be even or odd (*SW[8]*). This is visible on the display.<br>
+
 The Pmod port JA is used for transmission, pin **1** is for the signal, pin **6** is GND.<br>
 
 ### Receiver
