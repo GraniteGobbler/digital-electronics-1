@@ -31,7 +31,7 @@ The Pmod port JA is used for transmission, pin **1** is for the signal, pin **6*
 
 ### Receiver
 Once the baud rate, start bit, data bits and parity bit are set, the communication is ready to begin.<br>
-In the receiver mode, the receiver is waiting for a start bit and then reads the incoming data, calculates parity and shows whether the read signal is faulty on the RGB LED *LD17*. The incoming data is displayed on the LED row *LED[15]* to *LED[0]*<br>
+In the receiver mode, the receiver is waiting for a start bit and then reads the incoming data and calculates parity. The incoming data is displayed on the LED row *LED[15]* to *LED[0]*<br>
 
 The Pmod port JB is used for reception, the pinout is the same as in Transmitter.<br>
 
