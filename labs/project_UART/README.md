@@ -63,12 +63,12 @@ The parity is calculated in the *P_parity* process and the value in *frame* is p
 
 #### Transmitter
 <p align="center">
-  <img src="https://github.com/MojmirBegan/digital-electronics-1/tree/main/labs/x1-project_UART/images/tb_transmitter.png" />
+  <img src="https://github.com/MojmirBegan/digital-electronics-1/tree/main/labs/x1-project_UART/images/tb_transmitter.jpg" />
 </p>
 
 #### Receiver
 <p align="center">
-  <img src="https://github.com/MojmirBegan/digital-electronics-1/tree/main/labs/x1-project_UART/images/tb_receiver.png" />
+  <img src="https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/images/tb_receiver.jpg" />
 </p>
 
 ## Instructions
