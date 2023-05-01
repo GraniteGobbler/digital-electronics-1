@@ -72,7 +72,7 @@ The parity is calculated in the *P_parity* process and the value in *frame* is p
 </p>
 
 ## Instructions
-1. Connect the **JA port of the transmitter** board and the **JB port of the receiver** board using two wires. One wire should connect pins 1 and the other wire should connect pins 6.<br> The ***TX*** and ***RX*** switches (*SW[11]*,*SW[10]*) select the board mode.
+1. Connect the **JA port of the transmitter** board and the **JB port of the receiver** board using two wires. One wire should connect pins 1 and the other wire should connect pins 6.<br> The ***TX*** and ***RX*** switches (*SW[11]*, *SW[10]*) select the board mode.
 
 2. Set the baud rate on both boards.
 
