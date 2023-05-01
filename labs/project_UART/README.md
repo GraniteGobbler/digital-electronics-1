@@ -58,7 +58,7 @@ The parity is calculated in the *P_parity* process and the value in *frame* is p
 
 #### Baud Clock
 <p align="center">
-  <img src="https://github.com/GraniteGobbler/digital-electronics-1/blob/main/labs/project_UART/images/tb_clk_baud.png" />
+  <img src="https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/images/tb_clk_baud.jpg" />
 </p>
 
 #### Transmitter
