@@ -37,7 +37,7 @@ The Pmod port JB is used for reception, the pinout is the same as in Transmitter
 
 ## Software description
 <p align="center">
-  <img src="https://github.com/GraniteGobbler/digital-electronics-1/blob/main/labs/project_UART/images/top.png" />
+  <img src="https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/images/scheme.png" />
 </p>
 
 ### Baud Clock
