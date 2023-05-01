@@ -62,16 +62,36 @@ The parity is calculated in the *P_parity* process and the value in *frame* is p
 </p>
 
 #### Transmitter
-![img]()
-#### Receiver
-![img]()
+<p align="center">
+  <img src="https://github.com/MojmirBegan/digital-electronics-1/tree/main/labs/x1-project_UART/images/tb_transmitter.png" />
+</p>
 
-<p>
+#### Receiver
+<p align="center">
+  <img src="https://github.com/MojmirBegan/digital-electronics-1/tree/main/labs/x1-project_UART/images/tb_receiver.png" />
+</p>
 
 ## Instructions
-Usage of the transmitter is as follows:
+1. Connect the **JA port of the transmitter** board and the **JB port of the receiver** board using two wires. One wire should connect pins 1 and the other wire should connect pins 6.<br> The ***TX*** and ***RX*** switches (*SW[11]*,*SW[10]*) select the board mode.
 
-[Working demonstration video](https://youtu.be/yEXXWRQE4EQ)
+2. Set the baud rate on both boards.
+
+   | **Baud rate** | **SW[15]** | **SW[14]** | **SW[13]** |
+   | :-: | :-: | :-: | :-: |
+   | 4800 | 0 | 0 | 0 |
+   | 9600 | 0 | 0 | 1 |
+   | 14400 | 0 | 1 | 0 |
+   | 19200 | 0 | 1 | 1 |
+   | 28800 | 1 | 0 | 0 |
+   | 38400 | 1 | 0 | 1 |
+   | 57600 | 1 | 1 | 0 |
+   | 115200 | 1 | 1 | 1 |
+
+3. Set the ***Parity Enable*** (*SW[9]*)and the ***Parity Odd/Even*** (*SW[8]*) switches on both boards.
+
+4. On the transmitter board, set the data on the ***TX_DATA*** switches (*SW[7]* to *SW[0]*).<br>
+
+   *4.1. Optional:* Connect the receiver board to the Arduino Uno board and open PuTTY. After setting up PuTTY you should be able to send keyboard inputs to the receiver.
 
 ## References
 
