@@ -7,9 +7,11 @@
 
 ## Description and explanation
 
-Our project handles the reception and transmission of any data stream using two communication wires. The data stream needs to contain a 
-**start bit, 8 data bits** and, if desired, a **parity bit**. <br>
-The communication can also be made using one Nexys A7-50T board and a PC via the PuTTY client. <br> 
+Our project handles the reception and transmission of any data stream using two communication wires. The data stream must contain a 
+**start bit, 8 data bits, stop bit** and, if desired, a **parity bit**. <br>
+
+The communication can also be made using one Nexys A7-50T board **and** a PC via the PuTTY client. <br> 
+At first, we wanted to use a keyboard as an input method for the transmitter, but we settled on using a static method with an option of utilising the PuTTY console as an alternative. <br>
 
 <!-- <p align="center">
   <img src="images/nexys-a7-top-600.png" />
@@ -18,21 +20,27 @@ The communication can also be made using one Nexys A7-50T board and a PC via the
   <img src="https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/images/nexys-a7-top-600.png" />
 </p>
 
-The baud rate is variable in a standard range: **4800** to **115200** bps, this is set by three switches and is visible on the display.<br>
-Our implementation uses a manual transmitter/receiver mode toggle. In the transmitter mode, the board is either continuously sending set data, which is toggled by the **S.b.** switch, or just once. ***Odkaz na konkretne tlacidlo*** <br>
-
-Once the baud rate, start bit, data bits and parity bit are set, the communication is ready to begin. <br>
-In the receiver mode, the receiver is waiting for a start bit and then reads the incoming data, calculates parity and shows whether the read signal is faulty. ***(and which bit was incorrect)*** <br>
-
-The boards are connected via the Pmod ports JA on the **transmitter** and JB on the **receiver** side, using pin 1 and pin 6 (GND). <br>
-
-At first, we wanted to use a keyboard as an input method for the transmitter, but we settled on using a static method with an option of utilising the PuTTY console as an alternative. <br>
-
 ## Hardware description
 
 <p align="center">
   <img src="https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/images/schema_nedo.png" />
 </p>
+
+### Baud Clock
+The baud rate is variable in a standard range: **4800** to **115200** bps, this is set by three switches (*SW[15]* to *SW[13]*) and is visible on the display.<br>
+
+### Mode Switch
+Our implementation uses a manual Transmitter/Receiver/Transceiver mode toggle (*SW[11]*, *SW[10]*). In the transmitter mode, the board is continuously sending set data. Our implementation is able to transmit and receive simulatneously, therefore a transceiver mode is also available.<br>
+
+### Transmitter
+The data is set using *SW[7]* to *SW[0]*, **LSB** is on *SW[0]*. The sent data is delimited by a stop bit. If the parity is set (*SW[9]*), the user can choose if the parity should be even or odd (*SW[8]*). This is visible on the display.<br>
+The Pmod port JA is used for transmission, pin **1** is for the signal, pin **6** is GND.<br>
+
+### Receiver
+Once the baud rate, start bit, data bits and parity bit are set, the communication is ready to begin.<br>
+In the receiver mode, the receiver is waiting for a start bit and then reads the incoming data, calculates parity and shows whether the read signal is faulty on the RGB LED *LD17*.<br>
+
+The Pmod port JB is used for reception, the pinout is the same as in Transmitter.<br>
 
 ## Software description
 
