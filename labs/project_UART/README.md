@@ -52,7 +52,7 @@ The [*transmitter*](https://github.com/MojmirBegan/digital-electronics-1/blob/ma
 ### Receiver
 
 The [*receiver*](https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/UART/UART.srcs/sources_1/new/receiver.vhd) module reads the incoming data from *Rx_data*. The *inside* process is very similar to the *P_Transmitting* process from the *transmitter* module. While the *data_busy* flag is set, it stores the read data into the *frame* variable bit by bit.<br>
-The parity is calculated and the value in *frame* is pushed onto the LED bus. 
+The parity is calculated in the *P_parity* process and the value in *frame* is pushed onto the LED bus in the *P_led* process. 
 
 ### Waveforms from simulation
 
