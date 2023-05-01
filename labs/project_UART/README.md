@@ -14,7 +14,6 @@ The communication can also be made using one Nexys A7-50T board **and** a PC via
 At first, we wanted to use a keyboard as an input method for the transmitter, but we settled on using a static method with an option of utilising the PuTTY console as an alternative. <br>
 
 ## Hardware description
-
 <p align="center">
   <img src="https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/images/nexys-a7-top-600.png" />
 </p>
@@ -37,7 +36,6 @@ In the receiver mode, the receiver is waiting for a start bit and then reads the
 The Pmod port JB is used for reception, the pinout is the same as in Transmitter.<br>
 
 ## Software description
-
 <p align="center">
   <img src="https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/images/schema_nedo.png" />
 </p>
@@ -57,7 +55,10 @@ The software of receiving FPGA board is very similar to the transmitter. The [to
 ### Waveforms from simulation
 
 #### Baud Clock
-![img](https://github.com/GraniteGobbler/digital-electronics-1/tree/main/labs/project_UART/images/tb_clk_baud.jpg)
+<p align="center">
+  <img src="https://github.com/GraniteGobbler/digital-electronics-1/blob/main/labs/project_UART/images/tb_clk_baud.png" />
+</p>
+
 #### Transmitter
 ![img]()
 #### Receiver
