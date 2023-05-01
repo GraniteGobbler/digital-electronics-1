@@ -87,7 +87,7 @@ The parity is calculated in the *P_parity* process and the value in *frame* is p
    | 57600 | 1 | 1 | 0 |
    | 115200 | 1 | 1 | 1 |
 
-3. Set the ***Parity Enable*** (*SW[9]*)and the ***Parity Odd/Even*** (*SW[8]*) switches on both boards.
+3. Set the ***Parity Enable*** (*SW[9]*) and the ***Parity Odd/Even*** (*SW[8]*) switches on both boards.
 
 4. On the transmitter board, set the data on the ***TX_DATA*** switches (*SW[7]* to *SW[0]*).<br>
 
