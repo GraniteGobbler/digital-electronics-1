@@ -31,7 +31,7 @@ The Pmod port JA is used for transmission, pin **1** is for the signal, pin **6*
 
 ### Receiver
 Once the baud rate, start bit, data bits and parity bit are set, the communication is ready to begin.<br>
-In the receiver mode, the receiver is waiting for a start bit and then reads the incoming data, calculates parity and shows whether the read signal is faulty on the RGB LED *LD17*.<br>
+In the receiver mode, the receiver is waiting for a start bit and then reads the incoming data, calculates parity and shows whether the read signal is faulty on the RGB LED *LD17*. The incoming data is displayed on the LED row *LED[15]* to *LED[0]*<br>
 
 The Pmod port JB is used for reception, the pinout is the same as in Transmitter.<br>
 
@@ -41,16 +41,17 @@ The Pmod port JB is used for reception, the pinout is the same as in Transmitter
 </p>
 
 ### Baud Clock
-The [clk_baud](https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/UART/UART.srcs/sources_1/new/clk_baud.vhd) module houses two processes, one is used for selecting a desired baud rate, the other one is a modified version of *p_clk_enable* from [clock_enable](https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/UART/UART.srcs/sources_1/new/clock_enable.vhd).<br> 
-5 outputs labeled *data0* to *data4* are used for displaying the selected baud rate on the display. *clk_baud* output is used as a downscaled clock for the modules [transmitter](https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/UART/UART.srcs/sources_1/new/transmitter.vhd) and [receiver](https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/UART/UART.srcs/sources_1/new/receiver.vhd).
+
+The [*clk_baud*](https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/UART/UART.srcs/sources_1/new/clk_baud.vhd) module houses two processes, one is used for selecting a desired baud rate, the other one is a modified version of *p_clk_enable* from [*clock_enable*](https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/UART/UART.srcs/sources_1/new/clock_enable.vhd).<br> 
+5 outputs labeled *data0* to *data4* are used for displaying the selected baud rate on the display. *clk_baud* output is used as a downscaled clock for the modules [*transmitter*](https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/UART/UART.srcs/sources_1/new/transmitter.vhd) and [*receiver*](https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/UART/UART.srcs/sources_1/new/receiver.vhd).
 
 ### Transmitter
 
-The [top_transmitter](morse_transmitter/morse_transmitter.srcs/sources_1/new/top.vhd) has four input and three output ports. It includes two entities. [Bin_7seg](morse_transmitter/morse_transmitter.srcs/sources_1/new/bin_7seg.vhd), which converts the input binary code to individual segment to be set on the display. The segment can be blanked by pressing a button (BTNC). The second entity [(bin_morse)](morse_transmitter/morse_transmitter.srcs/sources_1/new/bin_morse.vhd) of top design is the main converter from binary format of letter to morse code. It contains the [prescaler](morse_transmitter/morse_transmitter.srcs/sources_1/new/clock_enable.vhd), which divide the main clock by g_max = 10 000 000. That means, the morse converter is controlled by clock with period of 100 ms.
+The [*transmitter*](https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/UART/UART.srcs/sources_1/new/transmitter.vhd) module packages and transmits the set data in the *P_Transmitting* process. It makes use of the *data_busy* flag, so that it transmits only when the process is not busy. The loaded data is packaged into the *frame* variable and is then pushed onto the *Tx_out* variable bit by bit. This is then followed up by a parity bit and a stop bit.
 
 ### Receiver
 
-The software of receiving FPGA board is very similar to the transmitter. The [top design](morse_receiver/morse_receiver.srcs/top_receiver.vhd) source also contains two entities. First one, called [morse_bin](morse_receiver/morse_receiver.srcs/morse_bin.vhd), parse the input morse code to bin representation of a letter. The conversion is done by decision of counter value, which is incremented during high pulse of input signal. If the value is 5 the input signal represents dot if it's 15 the signal represents dash. A low pulse is also followed by another counter, which when it reaches 200 ms, the reception of letter is considered as finished. All counters in this entity are feed by [prescaler](morse_receiver/morse_receiver.srcs/clock_enable.vhd) of constant g_max = 2 000 000, which coresponds to 20 ms. <br> The second part of top design is the same binary to 7 segemnt [converter](Z:/PC-II-SummerSemester/BPC-DE1-project/morse_receiver/morse_receiver.srcs/bin_7seg.vhd) as in the transmitter.
+The [receiver](https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/UART/UART.srcs/sources_1/new/receiver.vhd) module reads the incoming data from *Rx_data*. The *inside* process is very similar to the *P_Transmitting* process from the *transmitter* module
 
 ### Waveforms from simulation
 
