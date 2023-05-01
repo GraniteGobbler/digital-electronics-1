@@ -56,10 +56,12 @@ The software of receiving FPGA board is very similar to the transmitter. The [to
 
 ### Waveforms from simulation
 
+#### Baud Clock
+![img](https://github.com/MojmirBegan/digital-electronics-1/blob/main/labs/x1-project_UART/images/tb_clk_baud.jpg)
 #### Transmitter
-![img](images/Transmitter_testbench_2.png)
+![img]()
 #### Receiver
-![img](images/Receiver_testbench_2.png)
+![img]()
 
 <p>
 
