@@ -27,13 +27,13 @@ Our implementation uses a manual Transmitter/Receiver/Transceiver mode toggle (*
 ### Transmitter
 The data is set using *SW[7]* to *SW[0]*, **LSB** is on *SW[0]*. The sent data is delimited by a stop bit. If the parity is set (*SW[9]*), the user can choose if the parity should be even or odd (*SW[8]*). This is visible on the display.<br>
 
-The Pmod port JXADC is used for transmission, pin **1** is for the signal, pin **6** is GND.<br>
+The Pmod port JXADC is used for transmission, pin **1** is for the signal, pin **5** is GND.<br>
 
 ### Receiver
 Once the baud rate, start bit, data bits and parity bit are set, the communication is ready to begin.<br>
 In the receiver mode, the receiver is waiting for a start bit and then reads the incoming data and calculates parity. The incoming data is displayed on the LED row *LED[15]* to *LED[0]*<br>
 
-The Pmod port JXADC is used for reception, pin **2** is for the signal, pin **6** is for GND.<br>
+The Pmod port JXADC is used for reception, pin **7** is for the signal, pin **5** is for GND.<br>
 
 ## Software description
 <p align="center">
@@ -72,7 +72,7 @@ The parity is calculated in the *P_parity* process and the value in *frame* is p
 </p>
 
 ## Instructions
-1. Connect the boards using the **JXADC ports** using two wires. One wire should connect pins 1 and 2 and the other wire should connect pins 6 on both ports.<br> 
+1. Connect the boards using the **JXADC ports** using two wires. One wire should connect pins 1 and 7 and the other wire should connect pins 5 on both ports.<br> 
 2. The ***TX*** and ***RX*** switches (*SW[11]*, *SW[10]*) select the board mode.
 
 3. Set the baud rate on both boards.
