@@ -31,7 +31,7 @@ The Pmod port JXADC is used for transmission, pin **1** is for the signal, pin *
 
 ### Receiver
 Once the baud rate, start bit, data bits and parity bit are set, the communication is ready to begin.<br>
-In the receiver mode, the receiver is waiting for a start bit and then reads the incoming data and calculates parity. The incoming data is displayed on the LED row *LED[15]* to *LED[0]*<br>
+In the receiver mode, the receiver is waiting for a start bit and then reads the incoming data and calculates parity. The parity comparison result is shown on the RGB LED *LED16* The incoming data is displayed on the LED row *LED[15]* to *LED[0]*<br>
 
 The Pmod port JXADC is used for reception, pin **7** is for the signal, pin **5** is for GND.<br>
 
